@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#4CAF50">
+    <title>عمليات المواني - صفحة المستخدم</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="images/icon-192x192.png">
+    <link rel="apple-touch-icon" href="images/icon-192x192.png">
+</head>
+<body>
+    <div class="container">
+        <div class="dashboard">
+            <div class="header">
+                <div class="user-info">
+                    <img src="images/user-avatar.png" alt="صورة المستخدم">
+                    <div>
+                        <h2 id="userName">مستخدم عادي</h2>
+                        <p>مستخدم</p>
+                    </div>
+                </div>
+                <button class="logout-btn" onclick="logout()">تسجيل الخروج</button>
+            </div>
+
+            <div class="tabs">
+                <div class="tab active" data-tab="operations">العمليات</div>
+                <div class="tab" data-tab="my-operations">عملياتي</div>
+            </div>
+
+            <!-- قسم إضافة عملية جديدة -->
+            <div class="tab-content active" id="operations-tab">
+                <h2>إضافة عملية جديدة</h2>
+                
+                <div class="operation-form">
+                    <h3>بيانات العملية</h3>
+                    <form id="operationForm">
+                        <input type="hidden" id="operationId">
+                        <div class="form-row">
+                            <div class="form-col">
+                                <div class="form-group">
+                                    <label for="operationDate">تاريخ العملية:</label>
+                                    <input type="date" id="operationDate" name="operationDate" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="patientName">اسم المريض:</label>
+                                    <input type="text" id="patientName" name="patientName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="operationType">نوع العملية:</label>
+                                    <input type="text" id="operationType" name="operationType" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="operationCost">تكلفة العملية:</label>
+                                    <input type="number" id="operationCost" name="operationCost" step="0.01" required>
+                                </div>
+                            </div>
+                            <div class="form-col">
+                                <div class="form-group">
+                                    <label for="cardNumber">رقم البطاقة:</label>
+                                    <input type="text" id="cardNumber" name="cardNumber">
+                                </div>
+                                <div class="form-group">
+                                    <label for="sponsor">الكفيل:</label>
+                                    <input type="text" id="sponsor" name="sponsor">
+                                </div>
+                                <div class="form-group">
+                                    <label for="relationship">صلة القرابة:</label>
+                                    <input type="text" id="relationship" name="relationship">
+                                </div>
+                                <div class="form-group">
+                                    <label for="department">الإدارة:</label>
+                                    <input type="text" id="department" name="department">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-col">
+                                <button type="submit" class="btn btn-primary" id="saveBtn">حفظ العملية</button>
+                                <button type="button" class="btn btn-secondary" id="cancelBtn" style="display: none;">إلغاء</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div id="operationsMessage" class="message" style="display: none;"></div>
+            </div>
+
+            <!-- قسم عرض العمليات الخاصة بالمستخدم -->
+            <div class="tab-content" id="my-operations-tab">
+                <h2>عملياتي</h2>
+                
+                <div class="search-container">
+                    <input type="text" id="searchInput" class="search-input" placeholder="البحث في عملياتي...">
+                    <button class="search-btn">بحث</button>
+                </div>
+
+                <div id="myOperationsMessage" class="message" style="display: none;"></div>
+
+                <table class="data-table" id="myOperationsTable">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>تاريخ العملية</th>
+                            <th>اسم المريض</th>
+                            <th>نوع العملية</th>
+                            <th>تكلفة العملية</th>
+                            <th>الكفيل</th>
+                            <th>الإدارة</th>
+                            <th>الإجراءات</th>
+                        </tr>
+                    </thead>
+                    <tbody id="myOperationsTableBody">
+                        <!-- سيتم ملء هذا الجزء بواسطة JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/user.js"></script>
+</body>
+</html>

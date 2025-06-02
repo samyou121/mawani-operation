@@ -1,0 +1,27 @@
+{
+  "name": "عمليات المواني",
+  "short_name": "عمليات المواني",
+  "description": "تطبيق لإدارة بيانات عمليات المواني",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4CAF50",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "images/icon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "images/icon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "dir": "rtl",
+  "lang": "ar",
+  "prefer_related_applications": false
+}
